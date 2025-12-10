@@ -3,7 +3,17 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: 'http://localhost:3001' }); // frontend
-  await app.listen(3000);
+
+  // Enable CORS, cho phép frontend truy cập
+  app.enableCors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3001', // URL frontend
+    credentials: true, // nếu cần gửi cookie
+  });
+
+  // Lấy port từ biến môi trường hoặc default 3000
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
+  console.log(`Backend is running on http://localhost:${port}`);
 }
+
 bootstrap();
