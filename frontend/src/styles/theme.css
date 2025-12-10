@@ -1,0 +1,116 @@
+/* ===========================
+   GLOBAL THEME VARIABLES
+=========================== */
+
+/* Default Light Theme */
+:root {
+  --bg: #0d4985;               /* nền trang trắng pha xanh xám */
+  --text: #2a2d34;             /* chữ xám đậm */
+  
+  --card-bg: #ffffff;          /* nền card trắng */
+  --header-bg: #167af5;        /* header xanh xám nhạt */
+  --sidebar-bg: #98c3ed;       /* sidebar xanh xám sáng */
+
+  --button-bg: #e1e5ea;        /* màu nút xanh xám */
+  --button-hover: #cfd5dd;     /* hover đậm nhẹ */
+
+  --bg-color: #f7f9fb;         /* nền phụ */
+  --text-color: #000000;       /* text nổi bật */
+  
+  --primary: #3b82f6;          /* giữ nguyên màu primary */
+  --border: #d0d6dd;           /* viền xanh xám nhạt */
+
+  --error-color: #dc2626;
+}
+
+/* Light theme */
+.theme-light {
+  --bg: #f4f6f8;               /* nền trang trắng pha xanh xám */
+  --text: #ffffff;             /* chữ xám đậm */
+  
+  --card-bg: #ffffff;          /* nền card trắng */
+  --header-bg: #2331f8;        /* header xanh xám nhạt */
+  --sidebar-bg: #a3a4fd;       /* sidebar xanh xám sáng */
+
+  --button-bg: #e1e5ea;        /* màu nút xanh xám */
+  --button-hover: #cfd5dd;     /* hover đậm nhẹ */
+
+  --bg-color: #f7f9fb;         /* nền phụ */
+  --text-color: #000000;       /* text nổi bật */
+  
+  --primary: #3b82f6;          /* giữ nguyên màu primary */
+  --border: #d0d6dd;           /* viền xanh xám nhạt */
+  --shadow: 0 0 10px rgba(0,0,0,0.1);
+  --error-color: #dc2626;
+  --active-btn-color: #dcdcfe;
+  --non-active-text-color: #040b6d;
+  --active-text-color: #040b6d;
+  --hover-btn-color: #dcdcfe;
+  
+}
+
+/* Dark theme */
+.theme-dark {
+  --bg: #cfcfcf;               /* nền trang chính */
+  --text: #c7c7c7;             /* màu chữ xám nhạt */
+  
+  --card-bg: #9d9ea1;          /* nền card/box */
+  --header-bg: #1b1c1d;        /* header đen */
+  --sidebar-bg: #696a6e;       /* sidebar xám đen */
+
+  --button-bg: #2a2a2a;        /* màu nút xám */
+  --button-hover: #3a3a3a;     /* hover sáng hơn nhẹ */
+
+  --bg-color: #A9A9A9;         /* nền phụ (section, container) */
+  --text-color: #000000;       /* text nổi bật */
+  
+  --primary: #3b82f6;          /* xanh dương làm điểm nhấn */
+  --border: #747373;           /* xám dùng cho viền */
+  
+  --error-color: #ef4444;      /* đỏ hiện đại */
+  --shadow: 0 0 10px rgba(130, 125, 125, 0.934);
+
+  --active-btn-color: #dadbdc;
+  --non-active-text-color: #151515;
+  --active-text-color: #1e1d1d;
+  --hover-btn-color: #dadbdc;
+}
+
+/* Apply to all pages */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Shared UI elements */
+.card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  background: var(--button-bg);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: var(--button-hover);
+}
+
+/* Sidebar & Header */
+header {
+  background-color: var(--header-bg) !important;
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg) !important;
+}
