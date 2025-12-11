@@ -7,15 +7,15 @@ export default function Dashboard() {
 
   // Fetch thống kê
   useEffect(() => {
-    fetch("http://localhost:3000/students")
+    fetch("https://technicaltest-x3hm.onrender.com/students")
       .then((res) => res.json())
       .then((data) => setStats((prev) => ({ ...prev, students: data.length })));
 
-    fetch("http://localhost:3000/subjects")
+    fetch("https://technicaltest-x3hm.onrender.com/subjects")
       .then((res) => res.json())
       .then((data) => setStats((prev) => ({ ...prev, subjects: data.length })));
 
-    fetch("http://localhost:3000/scores")
+    fetch("https://technicaltest-x3hm.onrender.com/scores")
       .then((res) => res.json())
       .then((data) => setStats((prev) => ({ ...prev, scores: data.length })));
   }, []);
