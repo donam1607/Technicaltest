@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { StudentsModule } from './students/students.module';
 import { SubjectsModule } from './subjects/subjects.module';
 import { ScoresModule } from './scores/scores.module';
@@ -10,17 +11,24 @@ import { AppController } from './app.controller';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'diemthi_user',
-      password: '123456',
-      database: 'diem_thi',
-      entities: [Student, Subject, Score],
-      synchronize: false,
-      migrations: ['dist/migrations/*.js'],
+    // Load .env và make global
+    ConfigModule.forRoot({ isGlobal: true }),
+
+    // Kết nối TypeORM với PostgreSQL bằng DATABASE_URL
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        type: 'postgres',
+        url: configService.get<string>('DATABASE_URL'),
+        // Nếu muốn debug, có thể bật logging
+        logging: true,
+        autoLoadEntities: true, // tự load entity từ modules
+        synchronize: false, // tránh mất dữ liệu trong production
+        migrations: ['dist/migrations/*.js'],
+      }),
     }),
+
     StudentsModule,
     SubjectsModule,
     ScoresModule,

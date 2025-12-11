@@ -48,7 +48,7 @@ export default function Dashboard() {
           <div style={styles.cardIcon}>📘</div>
           <div>
             <p style={styles.cardLabel}>Subjects</p>
-            <h3 style={styles.cardValue}>{stats.subjects-1}</h3>
+            <h3 style={styles.cardValue}>{stats.subjects}</h3>
           </div>
         </div>
 
@@ -127,7 +127,7 @@ const styles = {
     gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
     gap: "22px",
     marginBottom: "30px",
-    
+
   },
 
   card: {
