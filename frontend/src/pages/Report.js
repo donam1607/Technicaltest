@@ -57,7 +57,7 @@ function Report() {
       <div style={styles.card}>
         <div style={styles.sectionHeader}>
           <h3 style={styles.sectionTitle}>
-            1️⃣ Score Distribution (
+            1️⃣ Thống kê số lượng học sinh theo từng mức điểm (
             {SUBJECTS.find((s) => s.code === subject)?.name})
           </h3>
 
@@ -93,7 +93,7 @@ function Report() {
 
       {/* ===== Top 10 ===== */}
       <div style={styles.card}>
-        <h3 style={styles.sectionTitle}>2️⃣ Top 10 Students (Toán + Lý + Hóa)</h3>
+        <h3 style={styles.sectionTitle}>2️⃣ Top 10 học sinh khối A (Toán + Lý + Hóa)</h3>
 
         {loadingTop ? (
           <p style={styles.loading}>Loading chart...</p>

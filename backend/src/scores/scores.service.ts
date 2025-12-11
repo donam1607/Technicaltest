@@ -108,8 +108,8 @@ export class ScoresService {
         scores.forEach(s => {
             const val = parseFloat(s.score) || 0;
             if (val >= 8) distribution['>=8']++;
-            else if (val >= 6) distribution['6-<8']++;
-            else if (val >= 4) distribution['4-<6']++;
+            else if (val >= 6) distribution['6=<..<8']++;
+            else if (val >= 4) distribution['4=<..<6']++;
             else distribution['<4']++;
         });
 
