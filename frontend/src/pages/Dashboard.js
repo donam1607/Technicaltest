@@ -61,45 +61,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* ==== BIỂU ĐỒ ==== */}
-      <div style={styles.chartCard}>
-        <div style={styles.chartHeader}>
-          <h3 style={{ margin: 0 }}>Phân bố điểm theo môn</h3>
-
-          <select
-            style={styles.select}
-            value={selectedSubject}
-            onChange={(e) => setSelectedSubject(e.target.value)}
-          >
-            <option value="toan">Toán</option>
-            <option value="van">Ngữ Văn</option>
-            <option value="anh">Tiếng Anh</option>
-            <option value="ly">Vật Lý</option>
-            <option value="hoa">Hóa</option>
-            <option value="sinh">Sinh</option>
-          </select>
-        </div>
-
-        {distData.length === 0 ? (
-          <p style={{ textAlign: "center", marginTop: 20 }}>
-            Không có dữ liệu cho môn này.
-          </p>
-        ) : (
-          <div style={styles.chartWrapper}>
-            {distData.map((item, idx) => (
-              <div key={idx} style={styles.barItem}>
-                <div
-                  style={{
-                    ...styles.bar,
-                    height: `${item.count * 12}px`,
-                  }}
-                ></div>
-                <span style={styles.barLabel}>{item.range}</span>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      
     </div>
   );
 }
