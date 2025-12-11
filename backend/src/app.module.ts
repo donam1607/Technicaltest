@@ -27,7 +27,7 @@ import { AppController } from './app.controller';
         database: config.get('DB_NAME'),
 
         entities: [Student, Subject, Score],
-        synchronize: false,
+        synchronize: true,
 
         ssl: {
           rejectUnauthorized: false, // ⭐ BẮT BUỘC CHO RENDER
