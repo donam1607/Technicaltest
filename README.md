@@ -1,7 +1,12 @@
 📘 Technical Test – Fullstack Web Application
 
-A fullstack application built with NestJS, PostgreSQL, and React.
+- A fullstack application built with NestJS, PostgreSQL, and React.
 The project includes a backend API for managing student scores and a frontend UI for searching and displaying results.
+
+📌 Seed Data Note
+
+- In this project, the seeder only imports the first 9 student records from the diem_thi_thpt_2024.csv file.
+This is because my personal laptop processes large CSV files slowly, so limiting the seed to 9 entries ensures the seeding process runs smoothly.
 
 📂 Project Structure
 
