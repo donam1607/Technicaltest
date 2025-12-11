@@ -18,7 +18,7 @@ export default function SearchScore() {
       setError("");
 
       const res = await fetch(
-        `http://localhost:3000/scores/get_student/${sbd}`
+        `https://technicaltest-x3hm.onrender.com/scores/get_student/${sbd}`
       );
 
       if (!res.ok) throw new Error("Student not found");

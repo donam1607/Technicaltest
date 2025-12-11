@@ -31,7 +31,7 @@ function Report() {
   useEffect(() => {
     setLoadingDist(true);
     fetch(
-      `http://localhost:3000/scores/report/distribution?subjectCode=${subject}`
+      `https://technicaltest-x3hm.onrender.com/scores/report/distribution?subjectCode=${subject}`
     )
       .then((res) => res.json())
       .then((data) => setDistData(Array.isArray(data) ? data : []))
@@ -42,7 +42,7 @@ function Report() {
   // Fetch top 10
   useEffect(() => {
     setLoadingTop(true);
-    fetch("http://localhost:3000/scores/report/top10")
+    fetch("https://technicaltest-x3hm.onrender.com/scores/report/top10")
       .then((res) => res.json())
       .then((data) => setTopData(Array.isArray(data) ? data : []))
       .catch(() => setTopData([]))
