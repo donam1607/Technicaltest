@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { StudentsModule } from './students/students.module';
 import { SubjectsModule } from './subjects/subjects.module';
 import { ScoresModule } from './scores/scores.module';
@@ -11,24 +11,26 @@ import { AppController } from './app.controller';
 
 @Module({
   imports: [
-    // Load .env và make global
-    ConfigModule.forRoot({ isGlobal: true }),
-
-    // Kết nối TypeORM với PostgreSQL bằng DATABASE_URL
+    ConfigModule.forRoot({
+      isGlobal: true, // toàn bộ app có thể dùng process.env
+    }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        url: configService.get<string>('DATABASE_URL'),
-        // Nếu muốn debug, có thể bật logging
-        logging: true,
-        autoLoadEntities: true, // tự load entity từ modules
-        synchronize: false, // tránh mất dữ liệu trong production
-        migrations: ['dist/migrations/*.js'],
-      }),
+      useFactory: (configService: ConfigService) => {
+        const databaseUrl = configService.get<string>('DATABASE_URL');
+        return {
+          type: 'postgres',
+          url: databaseUrl,
+          ssl: {
+            rejectUnauthorized: false, // bắt buộc với Render
+          },
+          entities: [Student, Subject, Score],
+          synchronize: false,
+          migrations: ['dist/migrations/*.js'],
+        };
+      },
     }),
-
     StudentsModule,
     SubjectsModule,
     ScoresModule,
